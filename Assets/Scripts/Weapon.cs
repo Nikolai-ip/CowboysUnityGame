@@ -26,6 +26,7 @@ public class Weapon : MonoBehaviour
     IEnumerator DoShoot()
     {
         int k = 0;
+        var wait = new WaitForSeconds(_unit.shootRepeatTime);
         for (; ; )
         {
             Shoot();
@@ -36,7 +37,7 @@ public class Weapon : MonoBehaviour
                 k = 0;
             }
            
-            yield return new WaitForSeconds(_unit.shootRepeatTime);
+            yield return wait;
         }
     }
     void Reload()

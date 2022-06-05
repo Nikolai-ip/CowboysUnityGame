@@ -61,13 +61,15 @@
     <Compile Include="Assets\Scripts\CreateEnemy.cs" />
     <Compile Include="Assets\Scripts\Cells.cs" />
     <Compile Include="Assets\Scripts\InstantiateCowboys.cs" />
+    <Compile Include="Assets\Scripts\Defeat.cs" />
     <Compile Include="Assets\Scripts\Robber.cs" />
+    <Compile Include="Assets\Scripts\InstantiateEnemy.cs" />
     <Compile Include="Assets\Scripts\CollisionBullet.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Cowboys.cs" />
     <Compile Include="Assets\Scripts\UnitLine.cs" />
     <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
-    <Compile Include="Assets\Scripts\InstantiateEnemy.cs" />
+    <Compile Include="Assets\Scripts\EnemyAttack.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -4,22 +4,28 @@ using UnityEngine;
 
 public class Robber : MonoBehaviour
 {
-    [SerializeField] private int _healt = 100;
-
-    [SerializeField] private float _speed = 20f;
+    [SerializeField] private int _healt ;
+    public Animator _animator { get; private set; }
+    [SerializeField] private float _speed;
     private SpriteRenderer _banditSpriteRender;
-    [SerializeField] private Rigidbody2D _rb;
+    private Rigidbody2D _rb;
     [SerializeField] private Color _color;
-    public int line;
-   
+    [SerializeField] private float _timeReloadHit;
+    [HideInInspector] public int line;
+    [SerializeField] private Transform _hitPoit;
+    [SerializeField] private int _hitDamage = 30;
+    [SerializeField] private float _hitRange = 0.5f;
+    [SerializeField] private LayerMask _layerCowboys;   
+    
 
     void Start()
     {
+       
         _banditSpriteRender = GetComponent<SpriteRenderer>();  
+        _animator = GetComponent<Animator>();
         _rb=GetComponent<Rigidbody2D>();
         Invoke("SetLayerOfRow", 0.2f);
-        
-
+        _animator.SetTrigger("walk");
     }
     void SetLayerOfRow()
     {
@@ -27,9 +33,7 @@ public class Robber : MonoBehaviour
         gameObject.layer = layer;
         for (int i = 1; i < 5; i++)
         {
-            if (line != i)
-                Physics2D.IgnoreLayerCollision((i + 5), layer, true);
-
+            Physics2D.IgnoreLayerCollision((i+9), layer, true);
         }
     }
     public void TakeDamage(int damage)
@@ -56,8 +60,38 @@ public class Robber : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void Attack()
+    {
+        StartCoroutine(DoAttack());
+    }
+    public void StopAttack()
+    {
+        StopCoroutine(DoAttack());
+        _animator.SetTrigger("walk");
+    }
+    IEnumerator DoAttack()
+    {
+        var wait = new WaitForSeconds(_timeReloadHit);
+        Vector2 vectorHit = _hitPoit.position;
+        Collider2D collider;
+        while (true)
+        {
+            collider=Physics2D.OverlapCircle(vectorHit, _hitRange);
+            collider.GetComponent<Cowboys>().TakeDamage(_hitDamage);
+            _animator.SetTrigger("hit");
+            yield return wait;
+        }
+       
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(_hitPoit.position, _hitRange);
+    }
+
+
     void Update()
     {
         _rb.velocity = Vector2.left * _speed*Time.deltaTime;
+
     }
 }

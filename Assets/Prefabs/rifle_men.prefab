@@ -366,6 +366,7 @@ MonoBehaviour:
   maxDamage: 100
   minDamage: 50
   numbersOfBullet: 1
+  healt: 100
 --- !u!114 &96249817
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,16 +11,17 @@ public class InstantiateEnemy : MonoBehaviour
     [SerializeField] private float _timeRespawnRobber;
     void Start()
     {
-       StartCoroutine(InstantiateCorutine());
+        StartCoroutine(InstantiateCorutine());
 
     }
     IEnumerator InstantiateCorutine()
     {
-        for(; ; )
+        var wait = new WaitForSeconds(_timeRespawnRobber);
+        for (; ; )
         {
             line = Random.Range(0, _targetStart.Length);
             var robber = Instantiate(_robberPrefab, _targetStart[line].transform.position, _targetStart[line].transform.rotation);
-            yield return new WaitForSeconds(_timeRespawnRobber);
+            yield return wait ;
         }
        
     }

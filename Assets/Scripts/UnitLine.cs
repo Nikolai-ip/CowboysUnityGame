@@ -5,5 +5,5 @@ using UnityEngine;
 public class UnitLine : MonoBehaviour
 {
     // Start is called before the first frame update
-   [SerializeField] public int line;
+   [HideInInspector] public int line;
 }
