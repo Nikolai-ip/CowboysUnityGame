@@ -362,10 +362,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   line: 0
-  shootRepeatTime: 8
-  maxDamage: 100
-  minDamage: 50
-  numbersOfBullet: 1
+  _shootRepeatTime: 5
+  _maxDamage: 100
+  _minDamage: 80
+  _numbersOfBullet: 1
   healt: 100
 --- !u!114 &96249817
 MonoBehaviour:

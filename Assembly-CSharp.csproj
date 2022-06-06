@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{9A34806D-DE08-5DD5-EB53-24F4332D8D7B}</ProjectGuid>
+    <ProjectGuid>{AC00D778-5F88-2EEC-5148-4A2D9DF3C155}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -59,17 +59,17 @@
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Compile Include="Assets\Scripts\DefineLine.cs" />
     <Compile Include="Assets\Scripts\CreateEnemy.cs" />
+    <Compile Include="Assets\Scripts\EnemyAttack.cs" />
     <Compile Include="Assets\Scripts\Cells.cs" />
     <Compile Include="Assets\Scripts\InstantiateCowboys.cs" />
-    <Compile Include="Assets\Scripts\Defeat.cs" />
+    <Compile Include="Assets\Scripts\GameControll\Defeat.cs" />
     <Compile Include="Assets\Scripts\Robber.cs" />
-    <Compile Include="Assets\Scripts\InstantiateEnemy.cs" />
+    <Compile Include="Assets\Scripts\GameControll\InstantiateEnemy.cs" />
     <Compile Include="Assets\Scripts\CollisionBullet.cs" />
     <Compile Include="Assets\Scripts\Bullet.cs" />
-    <Compile Include="Assets\Scripts\Cowboys.cs" />
+    <Compile Include="Assets\Scripts\Cowboys\RifleCowboys.cs" />
     <Compile Include="Assets\Scripts\UnitLine.cs" />
-    <Compile Include="Assets\Scripts\NewBehaviourScript.cs" />
-    <Compile Include="Assets\Scripts\EnemyAttack.cs" />
+    <Compile Include="Assets\Scripts\Cowboys\ICowboys.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

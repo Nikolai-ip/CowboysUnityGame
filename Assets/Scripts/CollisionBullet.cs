@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CollisionBullet : MonoBehaviour
@@ -8,18 +6,17 @@ public class CollisionBullet : MonoBehaviour
 
     private void Start()
     {
-        
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-      
-        Cowboys unit = gameObject.GetComponentInParent<Cowboys>(); // берем того rifleMen, который является родителем выпущенной bullet
-        Robber enemy =  collision.GetComponent<Robber>();
-        if(enemy!=null && unit.line == enemy.line)
+        ICowboys unit = gameObject.GetComponentInParent<ICowboys>(); // берем того cowboys, который является родителем выпущенной bullet
+        Robber enemy = collision.GetComponent<Robber>();
+        if (enemy != null && unit.GetLine() == enemy.line)
         {
-            enemy.TakeDamage(Random.Range(unit.minDamage,unit.maxDamage));
+            int[] range = unit.GetRangeDamage();
+            enemy.TakeDamage(Random.Range(range[0], range[1]));
             Destroy(gameObject);
         }
-       
     }
 }
